@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="company" namespace="/company" extends="struts-default">
+       <action name="getCompany" class="com.demo.action.CompanyAction" method="getCompany">
+           <result name="success" type="redirectAction">
+               <param name="actionName">login</param>
+               <param name="namespace">/user</param>
+           </result>
+           <result name="company" type="chain">companyShow</result>
+       </action>
+       <action name="companyShow" class="com.demo.action.CompanyAction" method="companyShow">
+           <result name="success">/page/company.jsp</result>
+       </action>
+    </package>
+</struts>
